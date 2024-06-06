@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập: Xử lý các tác vụ tuần tự</title>
+</head>
+<body>
+    <script>
+        function task1(callback) {
+            setTimeout(() => {
+                console.log("Task 1 được thực thi");
+                callback();
+            }, 1000); // Delay 1 giây
+        }
+
+        
+        function task2(callback) {
+            setTimeout(() => {
+                console.log("Task 2 được thực thi");
+                callback();
+            }, 1500); // Delay 1.5 giây
+        }
+
+        
+        function task3(callback) {
+            setTimeout(() => {
+                console.log("Task 3 được thực thi! Hoàn thành");
+                callback();
+            }, 2000); // Delay 2 giây
+        }
+
+        task1(() => {
+            task2(() => {
+                task3(() => {
+                    console.log("Tất cả các tác vụ đã hoàn thành.");
+                });
+            });
+        });
+    </script>
+</body>
+</html>

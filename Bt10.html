@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập: Xây dựng hàm myFindIndex()</title>
+</head>
+<body>
+    <script>
+        function myFindIndex(array, value, callback) {
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] === value) {
+                    callback(i, array);
+                    return;
+                }
+            }
+            callback(-1, array);
+        }
+
+        function callback(index, array) {
+            if (index !== -1) {
+                console.log(`Giá trị tìm thấy tại vị trí: ${index} trong mảng: ${JSON.stringify(array)}`);
+            } else {
+                console.log(`Không có giá trị nào được tìm thấy trong mảng: ${JSON.stringify(array)}`);
+            }
+        }
+
+        const numbers = [1, 2, 2, 3, 4, 5, 6];
+
+        myFindIndex(numbers, 2, callback); 
+
+        myFindIndex(numbers, 10, callback);
+    </script>
+</body>
+</html>

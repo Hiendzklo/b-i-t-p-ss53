@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập: Thực thi callback sau một khoảng thời gian</title>
+</head>
+<body>
+    <script>
+        function delayedCallback(callback, delay) {
+            setTimeout(callback, delay);
+        }
+
+        function showMessage() {
+            console.log("Hàm callback đã được thực thi sau khoảng thời gian delay.");
+        }
+
+        delayedCallback(showMessage, 2000);
+    </script>
+</body>
+</html>

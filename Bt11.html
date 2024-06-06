@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập: Xây dựng hàm myMap()</title>
+</head>
+<body>
+    <script>
+        function myMap(array, callback) {
+            const result = [];
+            for (let i = 0; i < array.length; i++) {
+                result.push(callback(array[i], i, array));
+            }
+            return result;
+        }
+
+        function callback(element, index, array) {
+            return element * 2;
+        }
+
+        const numbers = [1, 2, 3, 4, 5, 6];
+
+        const newNumbers = myMap(numbers, callback);
+
+        console.log(newNumbers); 
+    </script>
+</body>
+</html>

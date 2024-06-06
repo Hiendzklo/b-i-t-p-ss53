@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập: In các phần tử trong mảng sau một khoảng thời gian</title>
+</head>
+<body>
+    <script>
+        function processArray(array, callback) {
+            for (let i = 0; i < array.length; i++) {
+                setTimeout(() => {
+                    callback(array[i], i);
+                }, i * 1000); // Mỗi phần tử sẽ được in ra sau 1 giây so với phần tử trước
+            }
+        }
+
+        function printElement(element, index) {
+            console.log(`Phần tử thứ: ${index + 1}`);
+        }
+
+        const array = [1, 2, 3, 4, 5];
+        processArray(array, printElement);
+    </script>
+</body>
+</html>

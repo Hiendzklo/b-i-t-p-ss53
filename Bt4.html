@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập: In lần lượt các số nguyên sau một khoảng thời gian</title>
+</head>
+<body>
+    <script>
+        function displayNumbers(callback, delay) {
+            let count = 1;
+
+            function printNextNumber() {
+                callback(count);
+                count++;
+                setTimeout(printNextNumber, delay);
+            }
+
+            printNextNumber();
+        }
+
+        function printNumber(number) {
+            console.log(`Số thứ tự: ${number}`);
+        }
+        displayNumbers(printNumber, 1000);
+    </script>
+</body>
+</html>

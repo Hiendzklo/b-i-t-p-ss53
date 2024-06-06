@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List with Callbacks</title>
+</head>
+<body>
+    <script>
+        /**
+         * Thêm công việc vào danh sách
+         */
+        function addTask(taskName, taskList, callback) {
+            if (taskList.includes(taskName)) {
+                console.log(`Công việc "${taskName}" đã tồn tại trong danh sách.`);
+            } else {
+                taskList.push(taskName);
+                callback(taskList);
+            }
+        }
+
+        /**
+         * Xóa công việc khỏi danh sách
+         */
+        function deleteTask(taskName, taskList, callback) {
+            const index = taskList.indexOf(taskName);
+            if (index === -1) {
+                console.log(`Công việc "${taskName}" không tồn tại trong danh sách.`);
+            } else {
+                taskList.splice(index, 1);
+                callback(taskList);
+            }
+        }
+
+        /**
+         * Hiển thị danh sách công việc
+         */
+        function displayTasks(taskList) {
+            console.log("Danh sách công việc hiện tại:");
+            taskList.forEach((task, index) => {
+                console.log(`- ${index + 1}. ${task}`);
+            });
+        }
+
+        // Danh sách công việc ban đầu
+        const tasks = ["Học JavaScript", "Làm bài tập", "Đi chợ"];
+
+        // Thêm công việc mới
+        addTask("Đi tập thể dục", tasks, (updatedList) => {
+            console.log(`Công việc "Đi tập thể dục" đã được thêm thành công.`);
+            displayTasks(updatedList);
+        });
+
+        // Thử thêm công việc đã tồn tại
+        addTask("Học JavaScript", tasks, (updatedList) => {
+            console.log(`Công việc "Học JavaScript" đã được thêm thành công.`);
+            displayTasks(updatedList);
+        });
+
+        // Xóa công việc
+        deleteTask("Làm bài tập", tasks, (updatedList) => {
+            console.log(`Công việc "Làm bài tập" đã được xóa thành công.`);
+            displayTasks(updatedList);
+        });
+
+        // Thử xóa công việc không tồn tại
+        deleteTask("Đi ngủ", tasks, (updatedList) => {
+            console.log(`Công việc "Đi ngủ" đã được xóa thành công.`);
+            displayTasks(updatedList);
+        });
+    </script>
+</body>
+</html>

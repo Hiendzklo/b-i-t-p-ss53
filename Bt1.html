@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập: Tính tổng hai số</title>
+</head>
+<body>
+    <script>
+        function calculate(a, b, callback) {
+            const sum = a + b;
+            callback(sum);
+        }
+
+        function printResult(result) {
+            console.log("Kết quả của phép tính là:", result);
+        }
+
+        calculate(5, 10, printResult); // Kết quả của phép tính là: 15
+        calculate(7, 3, printResult);  // Kết quả của phép tính là: 10
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập: Xây dựng hàm myFind()</title>
+</head>
+<body>
+    <script>
+        function myFind(array, value, callback) {
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] === value) {
+                    callback(array[i], array, value);
+                    return;
+                }
+            }
+            callback(null, array, value);
+        }
+
+        function callback(result, array, value) {
+            if (result !== null) {
+                console.log(`Giá trị ${value} được tìm thấy: ${result}`);
+            } else {
+                console.log(`Giá trị ${value} không được tìm thấy trong mảng: ${JSON.stringify(array)}`);
+            }
+        }
+
+        const numbers = [1, 2, 2, 3, 4, 5, 6];
+
+        myFind(numbers, 2, callback); 
+
+        myFind(numbers, 10, callback); 
+    </script>
+</body>
+</html>
